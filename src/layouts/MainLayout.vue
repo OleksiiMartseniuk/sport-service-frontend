@@ -23,8 +23,7 @@
             <q-menu
             >
               <q-list style="min-width: 100px">
-<!--                <messages></messages>-->
-<!--                Add message component-->
+                <messages></messages>
                 <q-card class="text-center no-shadow no-border">
                   <q-btn label="View All" style="max-width: 120px !important;" flat dense
                          class="text-indigo-8"></q-btn>
@@ -71,6 +70,7 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
+import Messages from "./Messages.vue";
 
 const linksList = [
   {
@@ -114,7 +114,8 @@ export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    EssentialLink,
+    Messages
   },
 
   setup () {
