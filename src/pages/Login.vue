@@ -17,6 +17,7 @@
         </q-card-section>
         <q-card-section>
           <q-form
+            @submit.prevent="handlerSubmit"
             class="q-gutter-md"
           >
             <q-input
@@ -36,7 +37,7 @@
             />
 
             <div>
-              <q-btn label="Login" to="/" type="button" color="primary"/>
+              <q-btn label="Login" type="submit" color="primary"/>
             </div>
           </q-form>
         </q-card-section>
@@ -47,16 +48,32 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue'
-import {ref} from 'vue'
+import { defineComponent } from 'vue'
+import { ref } from 'vue'
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: 'LoginPage',
   setup() {
-    return {
-      username: ref('Pratik'),
-      password: ref('12345')
+    const store = useStore()
+    const router = useRouter()
+
+    const username = ref('')
+    const password = ref('')
+
+    const handlerSubmit = () => {
+      store.dispatch(
+        'auth/login',
+        {username: username.value, password: password.value}
+      )
+      username.value = '';
+      password.value = '';
+      if (store.state.auth.isAuth) {
+        router.push({ path: '/' });
+      }
     }
+    return {username, password, handlerSubmit}
   },
 })
 </script>
