@@ -10,7 +10,8 @@
         <card-profile-dark
             :name="category.title"
             text="Состоит из"
-            des="12"
+            :des="category.workout_count"
+            to="/"
           />
       </div>
     </div>
@@ -40,4 +41,3 @@ export default defineComponent({
   }
 });
 </script>
-
