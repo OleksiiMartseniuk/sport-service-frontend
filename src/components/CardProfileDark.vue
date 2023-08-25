@@ -5,12 +5,13 @@
         {{ name }}
       </div>
       <div class="q-pa-sm">
-        {{ text }}
-      </div>
-      <div class="q-pa-sm text-red-6">
-        {{ des }}
+        {{ text }} <span class="text-red-6">{{ des }}</span>
       </div>
     </q-card-section>
+    <q-separator dark />
+    <q-card-actions vertical>
+      <q-btn :to="to" flat>Go to</q-btn>
+    </q-card-actions>
   </q-card>
 </template>
 
@@ -31,6 +32,10 @@ export default defineComponent({
     text: {
       type: String,
       default: '',
+    },
+    to: {
+      type: String,
+      request: true,
     }
   }
 })
