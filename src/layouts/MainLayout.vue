@@ -74,19 +74,19 @@ import Messages from "./Messages.vue";
 
 const linksList = [
   {
-    title: 'Docs',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Категории',
+    icon: 'category',
+    link: '/categories'
   },
   {
-    title: 'Github',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'История',
+    icon: 'history_edu',
+    link: '/'
   },
   {
-    title: 'Discord Chat Channel',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'Hone',
+    icon: 'rss_feed',
+    link: '/'
   },
   {
     title: 'Forum',

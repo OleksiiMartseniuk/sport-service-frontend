@@ -49,7 +49,7 @@
 
 <script>
 import { defineComponent } from 'vue'
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
@@ -61,6 +61,7 @@ export default defineComponent({
 
     const username = ref('')
     const password = ref('')
+    const isAuth = computed(() => store.state.auth.isAuth)
 
     const handlerSubmit = () => {
       store.dispatch(
@@ -69,10 +70,14 @@ export default defineComponent({
       )
       username.value = '';
       password.value = '';
-      if (store.state.auth.isAuth) {
+    }
+
+    watch(isAuth, (currentValue) => {
+      if (currentValue) {
         router.push({ path: '/' });
       }
-    }
+    })
+
     return {username, password, handlerSubmit}
   },
 })

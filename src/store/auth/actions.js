@@ -1,5 +1,5 @@
-import {api} from "boot/axios";
-import {Loading, Notify, LocalStorage} from "quasar";
+import { api } from "boot/axios";
+import { Loading, Notify, LocalStorage } from "quasar";
 
 export function login ({ dispatch }, payload) {
   Loading.show()
